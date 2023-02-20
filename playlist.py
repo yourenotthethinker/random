@@ -1,9 +1,10 @@
-import spotipy
+# this creates a playlist on Spotify based upon songs provided on lines 12-16, can add more.
+import spotipy # install spotipy from: https://spotipy.readthedocs.io/
 from spotipy.oauth2 import SpotifyClientCredentials
 
 client_credentials_manager = SpotifyClientCredentials(
-    client_id='6108ed3382104746b8afd2cd5a8fd392',
-    client_secret='9a097c5f5fad44a99c3e6f8df30163ca'
+    client_id='', # Create a application @: https://developer.spotify.com/dashboard/applications, here you can get the client id and secret from the page of your created application.
+    client_secret='' 
 )
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
@@ -19,7 +20,7 @@ recommended_tracks = sp.recommendations(seed_tracks=seed_tracks, limit=100)
 
 recommended_track_uris = [track['uri'] for track in recommended_tracks['tracks']]
 
-playlist_name = 'aaaaaaaaaaaaaaa'
-playlist_description = 'bnbbbbbbbbbb'
-playlist_id = sp.user_playlist_create(user='ggot3fukds46fsau912z4alym', name=playlist_name, public=True, description=playlist_description)['id']
-sp.user_playlist_add_tracks(user='ggot3fukds46fsau912z4alym', playlist_id=playlist_id, tracks=recommended_track_uris)
+playlist_name = 'aaaaaaaaaaaaaaa' # playlist name
+playlist_description = 'bnbbbbbbbbbb' # playlist description, can be empty
+playlist_id = sp.user_playlist_create(user='', name=playlist_name, public=True, description=playlist_description)['id'] # !!! put the part after https://open.spotify.com/user/ when you copy your spotify link in the username parameter
+sp.user_playlist_add_tracks(user='', playlist_id=playlist_id, tracks=recommended_track_uris) # same as last line
