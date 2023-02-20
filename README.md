@@ -1,2 +1,2 @@
-# random
-random scripts
+# The Thinker
+You're NOT the thinker bro
